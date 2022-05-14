@@ -52,7 +52,7 @@ class DbHelper {
           )''');
   }
 
-  Future<BaseModel> create(BaseModel model) async {
+  Future<T> create<T extends BaseModel>(T model) async {
     try {
       final db = await instance.database;
       final id = await db.insert(model.table, model.toMap());
@@ -63,7 +63,7 @@ class DbHelper {
     }
   }
 
-  Future<BaseModel> update(BaseModel model) async {
+  Future<T> update<T extends BaseModel>(T model) async {
     try {
       final db = await instance.database;
       final id = await db.update(model.table, model.toMap());
