@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:location_alert/views/home_pages/home_page.dart';
-
-import 'custom_themes/custom_theme.dart';
+import 'package:get/get.dart';
+import 'package:location_alert/bindings/main_binding.dart';
+import 'package:location_alert/localization/location_alert_localization.dart';
+import 'package:location_alert/routes/page_routes.dart';
+import 'package:location_alert/routes/route_const.dart';
+import 'package:location_alert/views/main_pages/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: customTheme,
-      home: const HomePage(),
+      title: 'location_alert'.tr,
+      //theme: customTheme,
+      translations: LocationAlertLocalization(),
+      locale: Get.deviceLocale,
+      getPages: RoutePage.pages,
+      initialRoute: RouteConst.main,
+      initialBinding: MainBinding(),
     );
   }
 }
