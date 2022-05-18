@@ -33,5 +33,6 @@ class MainController extends BaseController {
 
   void onTapChange(int value) {
     currentIndex.value = value;
+    pageController.jumpToPage(value);
   }
 }

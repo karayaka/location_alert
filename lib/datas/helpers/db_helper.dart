@@ -28,28 +28,29 @@ class DbHelper {
 
   FutureOr<void> _createDB(Database db, int version) {
     ///TAblolar oluşturulacak ardından arka plan denenecek!
-    ///
-    db.execute('''CREATE TABLE ${LocationPlaceConst.table} 
+
+    var a = '''CREATE TABLE ${LocationPlaceConst.table} 
         (${LocationPlaceConst.id} INTEGER PRIMARY KEY,
          ${LocationPlaceConst.placeName} TEXT NOT NULL,
          ${LocationPlaceConst.placeDesc} TEXT NOT NULL,
          ${LocationPlaceConst.lat} REAL NOT NULL,
-         ${LocationPlaceConst.long} REAL NOT NULL,
-          )''');
+         ${LocationPlaceConst.long} REAL NOT NULL
+          );''';
+    db.execute(a);
     db.execute('''CREATE TABLE ${AlertModelField.table} 
         (${AlertModelField.id} INTEGER PRIMARY KEY,
          ${AlertModelField.alertDesc} TEXT NOT NULL,
          ${AlertModelField.alertIsActive} BOOLEAN NOT NULL,
          ${AlertModelField.locationID} INTEGER NOT NULL,
-         ${AlertModelField.soundID} INTEGER NOT NULL,
-          )''');
+         ${AlertModelField.soundID} INTEGER NOT NULL
+          );''');
     db.execute('''CREATE TABLE ${SettingCounst.table} 
         (${SettingCounst.id} INTEGER PRIMARY KEY,
          ${SettingCounst.defauldAlarmSoundID} INTEGER NOT NULL,
          ${SettingCounst.soundActive} BOOLEAN NOT NULL,
          ${SettingCounst.vibrationActive} BOOLEAN NOT NULL,
-         ${SettingCounst.volume} REAL NOT NULL,
-          )''');
+         ${SettingCounst.volume} REAL NOT NULL
+          );''');
   }
 
   Future<T> create<T extends BaseModel>(T model) async {
