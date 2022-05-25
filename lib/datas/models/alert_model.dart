@@ -1,4 +1,5 @@
 import 'package:location_alert/datas/models/base_model.dart';
+import 'package:location_alert/datas/models/location_place_model.dart';
 
 class AlertModelField {
   static const String id = "id";
@@ -11,10 +12,11 @@ class AlertModelField {
 }
 
 class AlertModel extends BaseModel {
-  String alertName;
-  String alertDesc;
+  String? alertName;
+  String? alertDesc;
   bool alertIsActive;
-  int locationID;
+  int? locationID;
+  LocationPlaceModel? location;
   int soundID;
   @override
   int? id;
@@ -22,16 +24,15 @@ class AlertModel extends BaseModel {
   @override
   String table;
 
-  AlertModel({
-    this.table = "alerts",
-    this.id,
-    required this.alertName,
-    required this.alertDesc,
-    this.alertIsActive = false,
-    required this.locationID,
-    this.soundID = 1,
-  });
-
+  AlertModel(
+      {this.table = "alerts",
+      this.id,
+      this.alertName,
+      this.alertDesc,
+      this.alertIsActive = false,
+      this.locationID,
+      this.soundID = 1,
+      this.location});
 
   @override
   Map<String, dynamic> toMap() => {

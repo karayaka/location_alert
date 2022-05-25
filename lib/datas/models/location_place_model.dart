@@ -12,10 +12,10 @@ class LocationPlaceConst {
 class LocationPlaceModel extends BaseModel {
   //location ile ilgili bilgiler tutulacak
 
-  String placeName;
-  String placeDesc;
-  double lat;
-  double long;
+  String? placeName;
+  String? placeDesc;
+  double? lat;
+  double? long;
 
   @override
   int? id;
@@ -25,10 +25,10 @@ class LocationPlaceModel extends BaseModel {
   LocationPlaceModel({
     this.table = "locationPlaces",
     this.id,
-    required this.placeName,
-    required this.placeDesc,
-    required this.long,
-    required this.lat,
+    this.placeName,
+    this.placeDesc,
+    this.long,
+    this.lat,
   });
   @override
   fromMap(Map<String, dynamic> map) => LocationPlaceModel(

@@ -83,6 +83,45 @@ class DbHelper {
     }
   }
 
+  Future<List<T>> getData<T extends BaseModel>(String table, T model) async {
+    try {
+      final db = await instance.database;
+      var result = await db.query(table);
+      return result.map((e) => model.fromMap(e)).cast<T>().toList();
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<T?> getByID<T extends BaseModel>(String table, int id, T model) async {
+    try {
+      final db = await instance.database;
+      var result = await db.query(table, where: "id", whereArgs: [id]);
+      if (result.isNotEmpty) {
+        return model.fromMap(result.first);
+      }
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<List<AlertModel>> getAlertByStatus(bool status) async {
+    try {
+      final db = await instance.database;
+      var result = await db.query(
+        AlertModelField.table,
+        where: AlertModelField.alertIsActive,
+        whereArgs: [status],
+      );
+      return result
+          .map((e) => AlertModel().fromMap(e))
+          .cast<AlertModel>()
+          .toList();
+    } catch (e) {
+      throw e;
+    }
+  }
+
   //get komutları özelleştirilecek list ve ıd ile sorgulamalar
 
   Future close() async {

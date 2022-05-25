@@ -4,7 +4,6 @@ import 'package:location_alert/bindings/main_binding.dart';
 import 'package:location_alert/localization/location_alert_localization.dart';
 import 'package:location_alert/routes/page_routes.dart';
 import 'package:location_alert/routes/route_const.dart';
-import 'package:location_alert/views/main_pages/main_page.dart';
 
 void main() {
   runApp(const MyApp());

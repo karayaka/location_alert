@@ -1,0 +1,4 @@
+enum ScreanState {
+  loading,
+  loaded,
+}

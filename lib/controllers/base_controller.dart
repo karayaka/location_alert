@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:location_alert/datas/enums/screan_state.dart';
 
 class BaseController extends GetxController {
+  var screanState = ScreanState.loaded.obs;
   succesMessage(String message) {
     Get.snackbar(
       "Başarılı",
