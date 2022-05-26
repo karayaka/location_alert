@@ -83,20 +83,20 @@ class DbHelper {
     }
   }
 
-  Future<List<T>> getData<T extends BaseModel>(String table, T model) async {
+  Future<List<T>> getData<T extends BaseModel>(T model) async {
     try {
       final db = await instance.database;
-      var result = await db.query(table);
+      var result = await db.query(model.table);
       return result.map((e) => model.fromMap(e)).cast<T>().toList();
     } catch (e) {
       throw e;
     }
   }
 
-  Future<T?> getByID<T extends BaseModel>(String table, int id, T model) async {
+  Future<T?> getByID<T extends BaseModel>(int id, T model) async {
     try {
       final db = await instance.database;
-      var result = await db.query(table, where: "id", whereArgs: [id]);
+      var result = await db.query(model.table, where: "id", whereArgs: [id]);
       if (result.isNotEmpty) {
         return model.fromMap(result.first);
       }

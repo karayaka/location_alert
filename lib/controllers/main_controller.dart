@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:location_alert/controllers/base_controller.dart';
 import 'package:location_alert/datas/helpers/db_helper.dart';
+import 'package:location_alert/datas/repositorys/main_repositorys.dart';
 
-class MainController extends BaseController {
+class MainController extends BaseController<MainRepositorys> {
   static const String _isolateName = "LocatorIsolate";
   ReceivePort port = ReceivePort();
 //çeviriler yapılacak

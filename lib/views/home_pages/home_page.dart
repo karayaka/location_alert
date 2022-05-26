@@ -13,9 +13,10 @@ class HomePage extends GetWidget<HomeController> {
 
   ListView _buildList() {
     return ListView.builder(
-      itemCount: 5,
-      itemBuilder: ((context, index) {
-        return Container();
+      itemCount: controller.activeAlert.length,
+      itemBuilder: ((context, i) {
+        var alert = controller.activeAlert[i];
+        return Container(child: Text(alert.alertName ?? ""));
       }),
     );
   }
