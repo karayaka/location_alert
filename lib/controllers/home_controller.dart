@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:location_alert/controllers/base_controller.dart';
+import 'package:location_alert/controllers/main_controller.dart';
 import 'package:location_alert/datas/enums/screan_state.dart';
 import 'package:location_alert/datas/models/alert_model.dart';
 import 'package:location_alert/datas/repositorys/main_repositorys.dart';

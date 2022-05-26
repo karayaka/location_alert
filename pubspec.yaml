@@ -18,6 +18,8 @@ dependencies:
   background_locator: ^1.6.12
   #db
   sqflite: ^2.0.2
+  #permition Hadler
+  permission_handler: ^9.2.0
 
 
 dev_dependencies:

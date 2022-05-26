@@ -15,6 +15,14 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.local_airport),
+            onPressed: () {
+              ctrl.startLocaionService();
+            },
+          )
+        ],
         title: Obx(() => _buildTitle()),
       ),
       bottomNavigationBar: Obx(() {
