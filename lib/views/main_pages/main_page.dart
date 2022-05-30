@@ -56,6 +56,11 @@ class MainPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
+            flex: 1,
+            child: Obx(() => Text(ctrl.locationStr.value)),
+          ),
+          Expanded(
+            flex: 5,
             child: PageView(
               onPageChanged: ctrl.onTapChange,
               controller: ctrl.pageController,
